@@ -37,3 +37,4 @@ models:
     example:
       +materialized: view
       +schema: staging
+      
