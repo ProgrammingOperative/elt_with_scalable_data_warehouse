@@ -4,6 +4,6 @@ sources:
   - name: postgres_sample_data_reference
     description: "Sample data provided in the postgres database"
     database: testdb
-    # schema: <schema_name>
+    schema: public
     tables:
       - name: traffic_table
