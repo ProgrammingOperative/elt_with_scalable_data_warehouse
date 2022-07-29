@@ -41,3 +41,12 @@ class ExtractCSV:
 
         #Create a dictionary first before creation of pandas dataframe
         data_dict = {cols[0]:track_ids, cols[1]:types, cols[2]:traveled_d, cols[3]:avg_speeds, cols[4]:lat, cols[5]:lon, cols[6]:speed, cols[7]:lon_acc, cols[8]:lat_acc, cols[9]:time}
+        
+        #Create dataframe
+        extract_df = pd.DataFrame(data_dict)
+
+
+        #Final output
+        print("-----------------Successfully Extracted data---------------------")
+        return extract_df
+
