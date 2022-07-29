@@ -4,10 +4,9 @@ class ExtractCSV:
     def __init__(self) -> None:
         pass
 
-    path = '../data/warehousedata.csv'
 
-    def load_and_restructure(path):
-        data = pd.read_csv(path)
+    def load_and_restructure():
+        data = pd.read_csv("~/10 Academy/week 11/repository/traffic_data_etl/data/warehousedata.csv")
 
         cols = data.columns[0].split(";")
 
