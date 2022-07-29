@@ -4,6 +4,8 @@ class ExtractCSV:
     def __init__(self) -> None:
         pass
 
+    path = '../data/warehousedata.csv'
+
     def load_and_restructure(path):
         data = pd.read_csv(path)
 
