@@ -1,19 +1,10 @@
 # traffic_data_etl
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   
-  <h3 align="center">Sensor Data ELT</h3>
+  <h3 align="center">Traffic Data ELT</h3>
 
   <p align="center">
     A fully dockerized ELT pipeline using MySQL, PostgreSQL, Airflow, DBT, Redash and Superset.
@@ -60,7 +51,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 The objective of this project was to migrate an ELT pipeline developed for the week 11 challenge using(MYSQL, DBT, Apache Airflow, and Redash) to a more scalable and robust ELT pipeline. This was accomplished by changing the two main components, namely the MySQL data warehouse to Postgres and the Redash dashboard to Superset.
 
 ### Built With
@@ -88,7 +78,7 @@ Make sure you have docker installed on local machine.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/eandualem/sensor_data_elt
+   git clone https://github.com/ProgrammingOperative/Migrate_traffic_data
    ```
 2. Datawarehouse
    ```sh
@@ -106,15 +96,7 @@ Make sure you have docker installed on local machine.
 
 ### Adminer: 
 Adminer (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Used to access MYSQL and Postgres Databases.
-- MYSQL:
-   ```sh
-   Navigate to `http://localhost:8080/` on the browser
-   use `mysqldb` server
-   use `dbtdb` database
-   use `root` for username
-   use `root` for password
-   ```
-- Postgress:
+- Postgres:
    ```sh
    Navigate to `http://localhost:8080/` on the browser
    use `postgres-dbt` server
@@ -132,7 +114,7 @@ Adminer (formerly phpMinAdmin) is a full-featured database management tool writt
 ### DBT:
 DBT is used for cleaning and transforming the data in the warehouses. 
 - Airflow is used for automation of running and testing dbt models
-- navigate to `https://sensordataelt.herokuapp.com/index.html` to access dbt docs
+- navigate to `https://trafficdataelt.herokuapp.com/index.html` to access dbt docs
 
 ### Redash
    ```sh
@@ -147,7 +129,7 @@ DBT is used for cleaning and transforming the data in the warehouses.
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/eandualem/sensor_data_elt/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/ProgrammingOperative/Migrate_traffic_data/issues) for a list of proposed features (and known issues).
 
 
 
