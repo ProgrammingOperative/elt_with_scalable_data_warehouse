@@ -43,7 +43,6 @@ class LoadToDB:
 
             dbConnection.close()
 
-dc = LoadToDB()
-dc.load_to_db()
+
 
 
