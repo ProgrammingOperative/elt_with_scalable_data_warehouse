@@ -7,7 +7,7 @@
   <h3 align="center">Traffic Data ELT</h3>
 
   <p align="center">
-    A fully dockerized ELT pipeline using MySQL, PostgreSQL, Airflow, DBT, Redash and Superset.
+    ELT pipeline using PostgreSQL, Airflow, DBT, Redash and Superset.
     <br />
     <br />
     ·
@@ -33,7 +33,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -56,7 +55,6 @@ The objective of this project was to migrate an ELT pipeline developed for the w
 ### Built With
 
 Tech Stack used in this project
-* [MYSQL](https://getbootstrap.com)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Apache Airflow](https://jquery.com)
 * [dbt](https://laravel.com)
@@ -68,28 +66,13 @@ Tech Stack used in this project
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Prerequisites
-
-Make sure you have docker installed on local machine.
-* Docker
-* DockerCompose
   
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ProgrammingOperative/Migrate_traffic_data
+   git clone https://github.com/ProgrammingOperative/traffic_data_etl
    ```
-2. Datawarehouse
-   ```sh
-   cd sensor_data_elt
-   ```
-3. Run
-   ```sh
-    docker-compose up
-   ```
-4. Can access and Modefy the default configrations for each tool using the `.env` files.
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -100,7 +83,7 @@ Adminer (formerly phpMinAdmin) is a full-featured database management tool writt
    ```sh
    Navigate to `http://localhost:8080/` on the browser
    use `postgres-dbt` server
-   use `dbtdb` database
+   use `testdb` database
    use `dbtuser` for username
    use `pssd` for password
    ```
@@ -114,7 +97,6 @@ Adminer (formerly phpMinAdmin) is a full-featured database management tool writt
 ### DBT:
 DBT is used for cleaning and transforming the data in the warehouses. 
 - Airflow is used for automation of running and testing dbt models
-- navigate to `https://trafficdataelt.herokuapp.com/index.html` to access dbt docs
 
 ### Redash
    ```sh
@@ -170,17 +152,5 @@ Project Link: [https://github.com/ProgrammingOperative/Migrate_traffic_data](htt
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/eandualem/sensor_data_elt.svg?style=for-the-badge
-[contributors-url]: https://github.com/eandualem/sensor_data_elt/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/eandualem/sensor_data_elt.svg?style=for-the-badge
-[forks-url]: https://github.com/eandualem/sensor_data_elt/network/members
-[stars-shield]: https://img.shields.io/github/stars/eandualem/sensor_data_elt.svg?style=for-the-badge
-[stars-url]: https://github.com/eandualem/sensor_data_elt/stargazers
-[issues-shield]: https://img.shields.io/github/issues/eandualem/sensor_data_elt.svg?style=for-the-badge
-[issues-url]: https://github.com/eandualem/sensor_data_elt/issues
-[license-shield]: https://img.shields.io/github/license/eandualem/sensor_data_elt.svg?style=for-the-badge
-[license-url]: https://github.com/eandualem/sensor_data_elt/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/elias-andualem-94a9a7195/
-[product-screenshot]: images/architecture.png
+[linkedin-url]: https://www.linkedin.com/in/titus-wachira-0ba20818b
 
