@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: postgres_sample_data_reference
     description: "Sample data provided in the postgres database"
-    database: testdb
+    database: masterdb
     schema: public
     tables:
       - name: traffic_table
