@@ -5,6 +5,6 @@ sources:
     description: Table created for postgres database
     database: masterdb
     schema: public
-    tables:
+    tables: 
       - name: person
       - name: car
