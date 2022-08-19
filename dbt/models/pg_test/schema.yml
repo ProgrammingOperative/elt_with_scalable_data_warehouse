@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: masterdb
+    description: Table created for postgres database
+    database: masterdb
+    schema: public
+    tables: 
+      - name: person
+      - name: car
