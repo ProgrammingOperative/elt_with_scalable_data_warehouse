@@ -1,8 +1,17 @@
 import json
 import pathlib
 from datetime import datetime, timedelta
+import os, sys
+print(os.path.abspath("working.............................."))
+sys.path.append(os.path.abspath("includes/python"))
 
- 
+print(sys.path)
+
+from scripts.extract_data import ExtractCSV
+
+csv = ExtractCSV()
+
+
 import airflow
 import requests
 import requests.exceptions as requests_exceptions
@@ -23,6 +32,8 @@ default_args = {
    'retries': 1,
    'retry_delay': timedelta(minutes=5)
 }
+
+
 
 with DAG(
    'Load_traffic_data',
