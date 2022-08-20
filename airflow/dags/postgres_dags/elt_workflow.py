@@ -15,8 +15,9 @@ import sys
 import os
 
 default_args = {
+   "owner": "ProgrammingOperative",
    'depends_on_past': False,
-   'email': ['airflow@example.com'],
+   'email': ['wachura11t@gmail.com'],
    'email_on_failure': False,
    'email_on_retry': False,
    'retries': 1,
