@@ -1,16 +1,17 @@
 import pandas as pd
 
 import os, sys
-sys.path.append(os.path.join("includes/scripts"))
 
 class ExtractCSV:
     def __init__(self) -> None:
         pass
 
+    def load_csv(self, path):
+        data_frame = pd.read_csv(path)
+        return data_frame
 
-    def load_and_restructure():
-        data = pd.read_csv("~/10 Academy/week 11/repository/traffic_data_etl/data/warehousedata.csv")
-
+    def restructure(self, data):
+        # data = pd.read_csv("~/10 Academy/week 11/repository/traffic_data_etl/data/warehousedata.csv")
         cols = data.columns[0].split(";")
 
     # Strip the data of empty spaces
@@ -53,4 +54,3 @@ class ExtractCSV:
         #Final output
         print("-----------------Successfully Extracted data---------------------")
         return extract_df
-

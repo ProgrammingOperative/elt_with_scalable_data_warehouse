@@ -2,26 +2,26 @@ import json
 import pathlib
 from datetime import datetime, timedelta
 import os, sys
-print(os.path.abspath("working.............................."))
-sys.path.append(os.path.abspath("includes/python"))
-
-print(sys.path)
-
-from scripts.extract_data import ExtractCSV
-
-csv = ExtractCSV()
-
+import pandas as pd
 
 import airflow
 import requests
 import requests.exceptions as requests_exceptions
 from airflow import DAG
+
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 import sys
 import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+from scripts.extract_data import ExtractCSV
+
+extract_it = ExtractCSV()
 
 default_args = {
    "owner": "ProgrammingOperative",
@@ -33,7 +33,11 @@ default_args = {
    'retry_delay': timedelta(minutes=5)
 }
 
-
+def extract():
+   data = extract_it.load_csv("../../../../data/warehousedata.csv")
+   restructured_df = extract_it.restructure(data)
+   path = '../../../../data/cleaned.csv'
+   data = restructured_df.to_csv(path)
 
 with DAG(
    'Load_traffic_data',
@@ -42,6 +46,11 @@ with DAG(
    schedule_interval=None,
    catchup=False,
 ) as dag:
+
+   extract_data = PythonOperator(
+      task_id = 'extract_data',
+      python_callable=extract,
+   )
 
    create_traffic_table = PostgresOperator(
       task_id = 'Create_table',
@@ -55,4 +64,4 @@ with DAG(
       sql="sql/create_table.sql",
    )
 
-create_traffic_table >> load_traffic_table
+extract_data >> create_traffic_table >> load_traffic_table
