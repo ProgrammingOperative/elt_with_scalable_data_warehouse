@@ -19,7 +19,7 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from scripts.extract_data import ExtractCSV
+from postgres_dags.extract_data import ExtractCSV
 
 extract_it = ExtractCSV()
 
@@ -34,22 +34,23 @@ default_args = {
 }
 
 def extract():
-   data = extract_it.load_csv("../../../../data/warehousedata.csv")
+   data = extract_it.load_csv("~/data/warehousedata.csv")
    restructured_df = extract_it.restructure(data)
-   path = '../../../../data/cleaned.csv'
-   data = restructured_df.to_csv(path)
+   path = '~/data/cleaned.csv'
+   restructured_df.to_csv(path)
+   
 
 with DAG(
    'Load_traffic_data',
    default_args = default_args,
-   start_date=datetime(2022, 8, 20),
+   start_date=datetime(2022, 8, 22),
    schedule_interval=None,
    catchup=False,
 ) as dag:
 
    extract_data = PythonOperator(
       task_id = 'extract_data',
-      python_callable=extract,
+      python_callable=extract
    )
 
    create_traffic_table = PostgresOperator(
