@@ -35,7 +35,6 @@ default_args = {
    'retry_delay': timedelta(minutes=5)
 }
 
-# /home/wacira/10Academy/ETL_week11/repository/traffic_data_etl/dbt
 def extract():
    data = extract_it.load_csv("~/data/warehousedata.csv")
    restructured_df = extract_it.restructure(data)
@@ -70,7 +69,7 @@ with DAG(
 
    transform = BashOperator(
       task_id = 'dbt_transformation',
-      bash_command='cd ~/10Academy/ETL_week11/repository/traffic_data_etl/dbt && dbt run',
+      bash_command='cd ~/dbt && dbt run',
       )
    
 
