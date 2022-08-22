@@ -19,6 +19,8 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
+DBT_PROJECT_DIR = "~/dbt"
+
 from postgres_dags.extract_data import ExtractCSV
 
 extract_it = ExtractCSV()
@@ -33,6 +35,7 @@ default_args = {
    'retry_delay': timedelta(minutes=5)
 }
 
+# /home/wacira/10Academy/ETL_week11/repository/traffic_data_etl/dbt
 def extract():
    data = extract_it.load_csv("~/data/warehousedata.csv")
    restructured_df = extract_it.restructure(data)
@@ -65,4 +68,11 @@ with DAG(
       sql="sql/create_table.sql",
    )
 
-extract_data >> create_traffic_table >> load_traffic_table
+   transform = BashOperator(
+      task_id = 'dbt_transformation',
+      bash_command='cd ~/10Academy/ETL_week11/repository/traffic_data_etl/dbt && dbt run',
+      )
+   
+
+
+extract_data >> create_traffic_table >> load_traffic_table >> transform 
